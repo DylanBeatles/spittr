@@ -2,9 +2,9 @@
 <body>
 <div>Hello World!</div>
 
-<form action="register.htm" method="post">
+<form action="/spring_spittr/register.htm" method="post">
   name: <input type="text" name="name" />
-  password: <input type="text" name="password" />
+  password: <input type="text" name="passWord" />
   <input type="submit" value="Submit" />
 </form>
 </body>
