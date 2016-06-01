@@ -46,6 +46,27 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         return new StandardServletMultipartResolver();
     }
 
+    /**
+     * 声明一个rest视图处理器
+     * 
+     * @return
+     */
+    //    @Bean
+    //    public ViewResolver cnViewResolver(ContentNegotiationManager cnManager) {
+    //        ContentNegotiatingViewResolver cnViewResolver = new ContentNegotiatingViewResolver();
+    //        cnViewResolver.setContentNegotiationManager(cnManager);
+    //        return cnViewResolver;
+    //    }
+
+    /**
+     * 声明默认的rest数据类型，当rest视图处理器无法识别客户端需要的数据类型，该配置起作用
+     * @see org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter#configureContentNegotiation(org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer)
+     */
+    //    @Override
+    //    public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
+    //        configurer.defaultContentType(MediaType.APPLICATION_JSON);
+    //    }
+
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
         configurer.enable();
