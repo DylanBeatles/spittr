@@ -4,6 +4,9 @@
  */
 package spittr.config;
 
+import javax.servlet.MultipartConfigElement;
+import javax.servlet.ServletRegistration.Dynamic;
+
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import spittr.service.config.RootConfig;
@@ -38,6 +41,21 @@ public class SpittrWebAppInitializer extends AbstractAnnotationConfigDispatcherS
     @Override
     protected String[] getServletMappings() {
         return new String[] { "/" };
+    }
+
+    /**
+     * 支持文件上传的配置
+     * @see org.springframework.web.servlet.support.AbstractDispatcherServletInitializer#customizeRegistration(javax.servlet.ServletRegistration.Dynamic)
+     */
+    @Override
+    protected void customizeRegistration(Dynamic registration) {
+        /**
+         * the first parameter means the uploaded file saved path
+         * second:max size of uploaded file
+         * third:max size of the request
+         */
+        registration.setMultipartConfig(new MultipartConfigElement("/tmp/spittr/uploads", 2048000,
+            4194304, 0));
     }
 
 }

@@ -4,14 +4,21 @@
  */
 package spittr.model;
 
+import javax.validation.constraints.Max;
+
+import com.sun.istack.internal.NotNull;
+
 /**
  * 
  * @author wb-zhanglu.y
  * @version $Id: User.java, v 0.1 May 31, 2016 4:13:47 PM wb-zhanglu.y Exp $
  */
 public class User {
+    @NotNull
+    @Max(value = 30)
     private String name;
 
+    @NotNull
     private String passWord;
 
     /**
